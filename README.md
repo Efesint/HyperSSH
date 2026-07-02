@@ -4,9 +4,6 @@
 The program allows for quick SSH connections. 
 You configure the settings once and then connect to servers rapidly using aliases.
 Connect to your servers in seconds. Set up aliases once, SSH instantly.
-
-## Demo
-
 ![HyperSSH in action](images/screen.png)
 
 ## Configuration example
