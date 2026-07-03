@@ -34,7 +34,7 @@ sudo apt install ruby
 ~~~ 
 mv HyperSSH.rb hyperssh
 ~~~
-4. Clone to the /usr/local/bin
+4. Copy to /usr/local/bin:
 ~~~
 sudo cp hyperssh /usr/local/bin
 ~~~
