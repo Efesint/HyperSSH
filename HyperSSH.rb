@@ -14,8 +14,13 @@ if File.exist?(File.expand_path("~/.ssh/servers.yaml"))
   
   config = YAML.load_file(File.expand_path("~/.ssh/servers.yaml"))
   servers = config["servers"]
-  puts "Enter the server alias"
-  server_alias = gets.chomp
+
+# loop starts here
+loop do
+  puts "Enter the server alias (or 'q' to quit)"
+  server_alias = gets.chomp.strip
+
+break if server_alias == "q"
 
   selected_server = servers.find { |s| s["alias"] == server_alias }
      if selected_server
@@ -38,12 +43,63 @@ if File.exist?(File.expand_path("~/.ssh/servers.yaml"))
                else
                  puts "Connection key not found!"
                 puts "Please create a connection key for your server."
-        end
+          end
 
-     else
-       puts "Server not found!"
+
+         else
+          puts "Server not found!"
+   end
 end
-
 else
-  puts "Please write the server.yaml"
+Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh"))
+
+  puts "Let's write the config."
+  system("touch ~/.ssh/servers.yaml")
+
+  puts "Please, write the alias "
+  server_alias = gets.chomp.strip
+   if server_alias.empty?
+    puts "Alias cannot be empty!"
+     exit
+   end
+
+  puts "Write the username"
+  server_user = gets.chomp.strip
+  if server_user.empty?
+     puts "User cannot be empty!"
+     exit
+    end
+
+  puts "Write name of server"
+  server_name = gets.chomp.strip
+  if server_name.empty?
+  puts "Server name cannot be empty!"
+  exit
+ end
+
+  puts "Write the host IPv4 address"
+  server_host = gets.chomp.strip
+  if server_host.empty?
+  puts "Host cannot be empty!"
+  exit
+  end
+
+  puts "Write the port"
+  server_port = gets.chomp
+  server_port = server_port.to_i
+   if server_port == 0
+   puts "The standard port 22 is set."
+   server_port = 22
+  end
+
+config_content = <<~YAML
+servers:
+ - alias: #{server_alias}
+   name: "#{server_name}"
+   host: #{server_host}
+   user: #{server_user}
+   port: #{server_port}
+YAML
+File.write(File.expand_path("~/.ssh/servers.yaml"), config_content)
+
 end
