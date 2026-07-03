@@ -23,6 +23,7 @@ loop do
 break if server_alias == "q"
 
   selected_server = servers.find { |s| s["alias"] == server_alias }
+  
      if selected_server
        host = selected_server["host"]
        user = selected_server["user"]
@@ -32,6 +33,7 @@ break if server_alias == "q"
           if port && port != 22
             ssh_command = "ssh -p #{port} #{user}@#{host}"
              end 
+       
           if File.exist?(File.expand_path("~/.ssh/id_rsa.pub"))
            system(ssh_command)
       
@@ -58,6 +60,7 @@ Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh
 
   puts "Please, write the alias "
   server_alias = gets.chomp.strip
+  
    if server_alias.empty?
     puts "Alias cannot be empty!"
      exit
@@ -65,6 +68,7 @@ Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh
 
   puts "Write the username"
   server_user = gets.chomp.strip
+  
   if server_user.empty?
      puts "User cannot be empty!"
      exit
@@ -72,6 +76,7 @@ Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh
 
   puts "Write name of server"
   server_name = gets.chomp.strip
+  
   if server_name.empty?
   puts "Server name cannot be empty!"
   exit
@@ -79,6 +84,7 @@ Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh
 
   puts "Write the host IPv4 address"
   server_host = gets.chomp.strip
+  
   if server_host.empty?
   puts "Host cannot be empty!"
   exit
@@ -87,6 +93,7 @@ Dir.mkdir(File.expand_path("~/.ssh")) unless Dir.exist?(File.expand_path("~/.ssh
   puts "Write the port"
   server_port = gets.chomp
   server_port = server_port.to_i
+  
    if server_port == 0
    puts "The standard port 22 is set."
    server_port = 22
@@ -101,5 +108,7 @@ servers:
    port: #{server_port}
 YAML
 File.write(File.expand_path("~/.ssh/servers.yaml"), config_content)
-
+puts " "
+puts "Done. Restart the programm."
+puts " "
 end
