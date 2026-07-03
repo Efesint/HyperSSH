@@ -42,5 +42,6 @@ sudo cp hyperssh /usr/local/bin
 ~~~
 sudo chmod +x /usr/local/bin/hyperssh
 ~~~
-# Mirror on codeberg
+# Mirror on codeberg and gitlab
 https://codeberg.org/efesint/hyperssh
+https://gitlab.com/Efesint0/HyperSSH
