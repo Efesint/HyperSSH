@@ -8,6 +8,7 @@ puts " "
 if File.exist?(File.expand_path("~/.ssh/servers.yaml"))
   puts "Config found"
   puts " "
+  
   config = File.read(File.expand_path("~/.ssh/servers.yaml"))
   puts config
   puts " "
@@ -107,6 +108,7 @@ servers:
    user: #{server_user}
    port: #{server_port}
 YAML
+  
 File.write(File.expand_path("~/.ssh/servers.yaml"), config_content)
 puts " "
 puts "Done. Restart the programm."
