@@ -45,3 +45,6 @@ sudo chmod +x /usr/local/bin/hyperssh
 # Mirror on codeberg and gitlab
 https://codeberg.org/efesint/hyperssh
 <br>https://gitlab.com/Efesint0/HyperSSH
+
+# LICENSE 
+This product is released under the GNU General Public License v3.0
