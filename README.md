@@ -1,13 +1,12 @@
 # HyperSSH
-
-**HYPERSSH** - a simple program written in the Ruby programming language.
+A simple program written in the Ruby programming language.
 The program allows for quick SSH connections. 
 You configure the settings once and then connect to servers rapidly using aliases.
 Connect to your servers in seconds.
 ![HyperSSH in action](images/screen.png)
 
 ## Configuration example
-~/.ssh/servers.yaml
+(`~/.ssh/servers.yaml`)
 ~~~
 servers: 
  - alias: router
@@ -23,25 +22,21 @@ servers:
 ~~~
 ## installation
 1. clone the repository
-~~~
+```sh
 git clone https://github.com/Efesint/HyperSSH && cd HyperSSH
-~~~
+```
 2.Make sure you have Ruby on your pc
-~~~
+```sh
 sudo apt install ruby
-~~~
-3. Rename the file.
-~~~ 
-mv HyperSSH.rb hyperssh
-~~~
-4. Copy to /usr/local/bin:
-~~~
-sudo cp hyperssh /usr/local/bin
-~~~
-5. Add hyperssh executable
-~~~
-sudo chmod +x /usr/local/bin/hyperssh
-~~~
+```
+3. Make hyperssh executable
+```sh
+chmod +x hyperssh
+```
+4. Move the file to (`/usr/local/bin/`).
+```sh 
+sudo mv HyperSSH.rb /usr/local/bin/hyperssh
+```
 # Mirror on codeberg and gitlab
 https://codeberg.org/efesint/hyperssh
 <br>https://gitlab.com/Efesint0/HyperSSH
