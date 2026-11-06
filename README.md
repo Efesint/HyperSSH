@@ -20,6 +20,13 @@ servers:
    user: root
    port: 22
 ~~~
+
+The configuration path defaults to `~/.ssh/servers.yaml`. Override it by setting
+the `SSH_CONFIG` environment variable when running HyperSSH:
+~~~
+SSH_CONFIG=/path/to/servers.yaml hyperssh
+~~~
+
 ## installation
 1. clone the repository
 ```sh
