@@ -20,18 +20,23 @@ servers:
    user: root
    port: 22
 ~~~
-## installation
-1. clone the repository
+## Installation
+1. Clone the repository
 ```sh
 git clone https://github.com/Efesint/HyperSSH && cd HyperSSH
 ```
-2.Make sure you have Ruby on your pc
+2. Make sure you have ruby installed.
 ```sh
-sudo apt install ruby
+if ! command -v ruby >/dev/null 2>&1; then
+    echo "Ruby is not installed. Installing..."
+    sudo apt install -y ruby
+else
+    echo "Ruby is already installed."
+fi
 ```
 3. Make hyperssh executable
 ```sh
-chmod +x hyperssh
+chmod +x HyperSSH.rb
 ```
 4. Move the file to (`/usr/local/bin/`).
 ```sh 
